@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link href="{% static 'css/h-vertical.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+    <div class="genealogy-body genealogy-scroll">
+        <div class="genealogy-tree">
+            <ul>
+                {% for director, subordinates in employees %}
+                    <li>
+                        <div class="member-view-box">
+                            <div class="member-image">
+{#                                <img src="{% static "assets/empl.svg" %}" alt="Member">#}
+                                <div class="member-details">
+                                    <h5>{{ director.full_name }}</h5>
+                                    <p>{{ director.position }}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        {% if subordinates %}
+                            <ul class="sub-employees active" id="sub-employees-{{ subordinates.id }}">
+                                {% for subordinate in subordinates %}
+                                    <li>
+                                        <div class="employee-node member-view-box"
+                                             data-employee-id="{{ subordinate.id }}">
+                                            <div class="member-image">
+{#                                                <img src="{% static "assets/empl.svg" %}" alt="Member">#}
+                                                <div class="member-details">
+                                                    <h5>{{ subordinate.full_name }}</h5>
+                                                    <p>{{ subordinate.position }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% if subordinate.has_children %}
+                                            <div class="children-container"></div>
+                                        {% else %}
+                                            <span>No subordinates</span>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'js/employeesLoadingVertical.js' %}"></script>
+{% endblock %}

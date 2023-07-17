@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link href="{% static 'css/h-horizontal.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+    <div class="p-5">
+        {% for director, subordinates in employees %}
+            <h1 class="text-l">{{ director.full_name }} ({{ director.position }})</h1>
+            {% if subordinates %}
+                <ul class="tree" id="sub-employees-{{ subordinates.id }}">
+                    {% for subordinate in subordinates %}
+                        <li>
+                            <span class="employee-node"
+                                  data-employee-id="{{ subordinate.id }}">{{ subordinate.full_name }} ({{ subordinate.position }})</span>
+                            {% if subordinate.has_children %}
+                                <div class="children-container"></div>
+                            {% endif %}
+                        </li>
+
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% empty %}
+            <span>No subordinates</span>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'js/employeesLoadingHorizontal.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,5 @@
+[client]
+database = workers
+user = root
+password = Aa11!!az
+default-character-set = utf8
