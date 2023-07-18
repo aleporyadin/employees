@@ -5,16 +5,36 @@
 <head>
     <title>{% block title %}{% endblock %}</title>
     {% load django_bootstrap5 %}
+    {# Bootstrap css #}
+
     {% bootstrap_css %}
 
+    {# JQuery css  #}
+    <link rel="stylesheet" href="{% static "jquery-ui/jquery-ui.min.css" %}"/>
+
+    {# Custom css #}
     {% block link %}
     {% endblock %}
+
+    {# JQuery #}
+    <script src="{% static "jquery-ui/external/jquery/jquery.js" %}"></script>
+    <script src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
+    {# JQuery #}
+
+
+    {# Bootstrap scripts #}
+    {% bootstrap_javascript %}
+
+    {# Custom js #}
+    {% block script %}
+    {% endblock %}
+
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light  px-5">
     <a class="navbar-brand" href="{% url 'home' %}">Employees</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -69,13 +89,6 @@
 {% block content %}
 
 
-{% endblock %}
-
-<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
-        crossorigin="anonymous"></script>
-{% bootstrap_javascript %}
-
-{% block script %}
 {% endblock %}
 
 </body>
