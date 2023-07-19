@@ -3,6 +3,7 @@ async function fetchEmployees(employeeId) {
 }
 
 $(document).ready(function () {
+
   const sortTableByColumn = (table, column, asc = true) => {
     const dirModifier = asc ? 1 : -1;
     const tBody = table.tBodies[0];
@@ -108,8 +109,7 @@ $(document).ready(function () {
   });
 
 
-  const deleteModal = $('#deleteModal');
-  deleteModal.bind('show.bs.modal', event => {
+  $('#deleteModal').bind('show.bs.modal', event => {
     const button = event.relatedTarget;
     const employeeId = button.getAttribute('data-id');
     const deleteBtn = document.getElementById('delete-modal-btn');
@@ -127,7 +127,7 @@ $(document).ready(function () {
         .catch(error => {
           console.log(error);
         });
-      deleteModal.modal('hide');
+      $('#deleteModal').modal('hide');
     });
   });
 });
