@@ -1,8 +1,8 @@
 from random import choice
 from faker import Faker
 from django.core.management.base import BaseCommand
-from django_seed import Seed
-from hierarchy.models import Employee
+
+from home.models import Employee
 
 fake = Faker()
 

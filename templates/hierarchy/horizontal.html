@@ -8,29 +8,29 @@
 {% block content %}
 
     <div class="container tree p-5">
-        <h1 class="title">Horizontal employee list </h1>
+        <h1 class="title pb-2">Company</h1>
         {% for director, subordinates in employees %}
-            <ul>
+            <ol>
                 <li>
                     <span class="sortable employee-node children-container" id="sub-employees-{{ subordinates.id }}"
                           draggable="true">{{ director.full_name }} ({{ director.position }})</span>
 
-                {% if subordinates %}
-                    <ul class="tree sortable children-container" id="sub-employees-{{ subordinates.id }}">
-                        {% for subordinate in subordinates %}
-                            <li>
+                    {% if subordinates %}
+                        <ul class="tree sortable children-container" id="sub-employees-{{ subordinates.id }}">
+                            {% for subordinate in subordinates %}
+                                <li>
                             <span class="employee-node"
                                   data-employee-id="{{ subordinate.id }}"
                                   draggable="true">{{ subordinate.full_name }} ({{ subordinate.position }})</span>
-                                {% if subordinate.has_children %}
-                                    <ul class="children-container"></ul>
-                                {% endif %}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </li>
-            </ul>
+                                    {% if subordinate.has_children %}
+                                        <ul class="children-container"></ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            </ol>
 
 
         {% empty %}

@@ -56,6 +56,6 @@ ul {
     border: 1px solid #aaa;
 }
 
-.tree li span:hover + ul li:after, .tree li span:hover + ul li:before, .wtree li span:focus + ul li:after, .wtree li span:focus + ul li:before {
+.tree li span:hover + ul li:after, .tree li span:hover + ul li:before, .tree li span:focus + ul li:after, .tree li span:focus + ul li:before {
     border-color: #aaa;
 }

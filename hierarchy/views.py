@@ -1,17 +1,10 @@
 from django.contrib.auth.decorators import login_required
-from django.core.paginator import Paginator
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
-from hierarchy.models import Employee
-
-from hierarchy.utils import get_children_data
-
-
-def index(request):
-    return render(request, "index.html")
+from home.models import Employee
 
 
 @login_required

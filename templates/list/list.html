@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="container text-center py-5">
+        <h1>List of Employees</h1>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <input type="text" class="form-control" placeholder="Search" id="search-input">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="table-responsive-sm">
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th>Full Name</th>
+                    <th>Position</th>
+                    <th>Hire Date</th>
+                    <th>Email</th>
+                    <th>Manager</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="employee-table">
+                {% include 'list/employee_rows.html' %}
+                </tbody>
+            </table>
+
+            {% include 'list/pagination.html' %}
+
+        </div>
+    </div>
+
+    {% include 'modals/employee_edit.html' %}
+    {% include 'modals/employee_delete.html' %}
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/employeesList.js' %}"></script>
+{% endblock %}

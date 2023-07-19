@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from hierarchy.models import Employee
+from home.models import Employee
 
 # Register your models here.
 

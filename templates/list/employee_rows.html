@@ -1,0 +1,19 @@
+{% for employee in page_obj %}
+    <tr id="employee-{{ employee.id }}">
+        <td>{{ employee.full_name }}</td>
+        <td>{{ employee.position }}</td>
+        <td>{{ employee.hire_date }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.manager.full_name }}</td>
+        <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#editModal" data-id="{{ employee.id }}">
+                Edit
+            </button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal" data-id="{{ employee.id }}">
+                Delete
+            </button>
+        </td>
+    </tr>
+{% endfor %}

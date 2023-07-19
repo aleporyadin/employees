@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'list',
     'django_static_jquery_ui',
-
+    'home'
 ]
 
 MIDDLEWARE = [
@@ -36,12 +36,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'employees.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -54,13 +54,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'employees.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "OPTIONS": {
-            "read_default_file": os.path.join(BASE_DIR, 'db.cnf'),
+            "read_default_file": os.path.join(BASE_DIR, 'employees/db.cnf'),
         },
     }
 }
