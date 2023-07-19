@@ -1,0 +1,6 @@
+asgiref==3.7.2
+Django==4.2.3
+django-bootstrap5==3.1.0
+django-seed==2.1.0
+django-static-jquery-ui==0.8.1
+mysqlclient==2.2.0

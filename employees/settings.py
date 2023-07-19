@@ -2,8 +2,7 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-os.path.join(BASE_DIR, 'db.cnf'),
-
+print(BASE_DIR)
 SECRET_KEY = 'django-insecure-84@jpbnzmkmhrq!2ls6bi0y)f_c4u6ul7t59)42z4t8m&nccng'
 
 DEBUG = True
@@ -36,12 +35,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'employees.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -54,13 +53,13 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'wsgi.application'
+WSGI_APPLICATION = 'employees.wsgi.application'
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "OPTIONS": {
-            "read_default_file": os.path.join(BASE_DIR, 'employees/db.cnf'),
+            "read_default_file": os.path.join(BASE_DIR, 'db.cnf'),
         },
     }
 }
@@ -88,7 +87,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
