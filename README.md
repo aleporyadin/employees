@@ -13,7 +13,8 @@ This project is a web application developed using Python, Django, JavaScript, jQ
     - For Windows: `.\env\Scripts\activate`
     - For macOS/Linux: `source env/bin/activate`
 5. Install the required dependencies: `pip install -r requirements.txt`.
-6. Create migrations: `python manage.py makemigrations`.
+6. Not forget change credentials data for DB MySQL, in file `db.cnf`.
+7. Create migrations: `python manage.py makemigrations`.
 6. Run database migrations: `python manage.py migrate`.
 7. Fill date base: `python manage.py fill 500`.
 8. Start the development server: `python manage.py runserver`.
