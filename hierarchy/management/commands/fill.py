@@ -22,7 +22,11 @@ class Command(BaseCommand):
             position = choice(positions)
             email = fake.email()
             hire_date = fake.date()
-            manager = Employee.objects.order_by('?').first()
+            managers_pks = Employee.objects.values_list('pk', flat=True)
+            manager_pk = choice(managers_pks) if managers_pks else None
+
+            manager = Employee.objects.get(pk=manager_pk) if manager_pk else None
+
             Employee.objects.create(full_name=full_name, position=position, email=email, manager=manager,
                                     hire_date=hire_date)
         self.stdout.write(self.style.SUCCESS(f'Successfully seeded {total} employees'))

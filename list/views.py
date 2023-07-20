@@ -11,7 +11,7 @@ from home.models import Employee
 
 @login_required
 def employee_list(request):
-    search_query = request.GET.get('q')
+    search_query = request.GET.get('q') if request.GET.get('q') else ''
 
     employees = Employee.objects.all()
 
@@ -60,6 +60,7 @@ def search_employees(request):
     context = {'page_obj': page_obj}
     return render(request, 'list/list.html', context)
 
+
 @login_required
 def get_employee(request):
     employee_id = request.GET.get('employeeId')
@@ -94,8 +95,7 @@ def update_employee(request):
         employee.position = position
         employee.hire_date = hire_date
         employee.email = email
-        if manager_id:
-            employee.manager_id = manager_id  # Set the manager ID
+        employee.manager_id = manager_id  # Set the manager ID
 
         employee.save()
 

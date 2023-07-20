@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-print(BASE_DIR)
 SECRET_KEY = 'django-insecure-84@jpbnzmkmhrq!2ls6bi0y)f_c4u6ul7t59)42z4t8m&nccng'
 
 DEBUG = True
@@ -57,10 +56,16 @@ WSGI_APPLICATION = 'employees.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "OPTIONS": {
-            "read_default_file": os.path.join(BASE_DIR, 'db.cnf'),
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'workers.sqlite3',
+
+        #  if user params:
+        # "ENGINE": "django.db.backends.mysql",
+        # "OPTIONS": {
+        # 'USER': os.getenv('DB_USER'),
+        # 'PASSWORD': os.getenv('DB_PASS'),
+        # "read_default_file": os.path.join(BASE_DIR, 'config.env'),
+        # },
     }
 }
 

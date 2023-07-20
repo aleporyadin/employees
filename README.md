@@ -15,9 +15,9 @@ This project is a web application developed using Python, Django, JavaScript, jQ
 5. Install the required dependencies: `pip install -r requirements.txt`.
 6. Not forget change credentials data for DB MySQL, in file `db.cnf`.
 7. Create migrations: `python manage.py makemigrations`.
-6. Run database migrations: `python manage.py migrate`.
-7. Fill date base: `python manage.py fill 500`.
-8. Start the development server: `python manage.py runserver`.
+8. Run database migrations: `python manage.py migrate`.
+9. Fill date base: `python manage.py fill 500`.
+10. Start the development server: `python manage.py runserver`.
 
 ## Technologies Used
 
@@ -26,6 +26,7 @@ This project is a web application developed using Python, Django, JavaScript, jQ
 - JavaScript
 - jQuery
 - Bootstrap
+- SQLite
 
 ## Project Structure
 

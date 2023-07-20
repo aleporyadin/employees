@@ -116,6 +116,8 @@ $(document).ready(function () {
     const formData = new FormData();
     formData.append('employeeId', employeeId);
     deleteBtn.addEventListener('click', () => {
+      console.log('asd');
+
       fetch('delete-employee/', {  // Update the URL here
         method: 'POST',
         body: formData

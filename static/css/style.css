@@ -14,11 +14,11 @@ table th {
 }
 
 table .th-sort-asc::after {
-    content: "&#9652;";
+    content: "▴";
 }
 
 table .th-sort-desc::after {
-    content: "&#9662;";
+    content: "▾";
 }
 
 table.th-sort-asc::after,
